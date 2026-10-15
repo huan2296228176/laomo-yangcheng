@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>老陌养成</title>
+<title>宋娇养成</title>
 <style>
   :root{
     --brown:#8b5a2b; --brown-d:#6f4520; --tan:#e8c39a; --cream:#fff6e9;
@@ -151,7 +151,7 @@
 <div id="app">
   <!-- 标题与金币 -->
   <header>
-    <h1>老陌养成 <small>· 棕熊养成记</small></h1>
+    <h1>宋娇养成 <small>· 棕熊养成记</small></h1>
     <div id="coinBox">💰 <span id="coin">0</span></div>
   </header>
 
@@ -164,14 +164,14 @@
     <div class="stat"><span class="lb">📚 智力</span><span class="bar" id="barIntel"><i></i></span><span class="vl" id="vIntel">0</span></div>
   </section>
 
-  <!-- 游戏舞台：云朵、太阳、气泡、老陌本体 -->
+  <!-- 游戏舞台：云朵、太阳、气泡、宋娇本体 -->
   <section id="stage">
     <div class="sun"></div>
     <div class="cloud c1">☁️</div>
     <div class="cloud c2">☁️</div>
-    <div id="bubble">你好呀，我是老陌～</div>
+    <div id="bubble">你好呀，我是宋娇～</div>
     <div id="bearWrap">
-      <!-- 用 SVG 代码绘制的原创棕熊「老陌」 -->
+      <!-- 用 SVG 代码绘制的原创棕熊「宋娇」 -->
       <svg id="bearSvg" viewBox="0 0 320 330" data-mood="normal">
         <g class="bear">
           <!-- 手臂与腿 -->
@@ -236,8 +236,8 @@
     <!-- 养成成功结算 -->
     <div id="win">
       <div class="big">🎉</div>
-      <h2>养成成功！老陌爱你！</h2>
-      <p id="winTxt">好感度满 100，老陌已成为最黏你的小熊～</p>
+      <h2>养成成功！宋娇爱你！</h2>
+      <p id="winTxt">好感度满 100，宋娇已成为最黏你的小熊～</p>
       <button onclick="closeWin()">继续相处</button>
     </div>
   </section>
@@ -266,7 +266,7 @@
 
 <script>
 const KEY='laomo_save_v1';
-const DEF={love:50,hate:0,coin:100,food:80,energy:80,intel:10,log:['老陌出生啦！它圆滚滚地望着你～']};
+const DEF={love:50,hate:0,coin:100,food:80,energy:80,intel:10,log:['宋娇出生啦！它圆滚滚地望着你～']};
 let S=load(), busy=false;
 
 function load(){try{const d=JSON.parse(localStorage.getItem(KEY));if(d&&typeof d.love==='number')return Object.assign({},DEF,d);}catch(e){}return Object.assign({},DEF);}
@@ -309,14 +309,14 @@ function anim(name,dur){stage.classList.remove('anim-eat','anim-cute','anim-hit'
   setTimeout(()=>{stage.classList.remove('anim-'+name);busy=false;render();},dur);}
 
 const DEST=[
-  {n:'森林秘境',e:'🌳',txt:'老陌在森林里追蝴蝶，还捡到一颗超大的松果！'},
-  {n:'海边沙滩',e:'🏖️',txt:'老陌堆了一个大沙堡，浪花来了它跑得比谁都快～'},
-  {n:'雪山之巅',e:'⛰️',txt:'老陌从雪坡上滚下来，变成了一只白熊，逗得你哈哈大笑。'},
-  {n:'欢乐游乐园',e:'🎡',txt:'老陌坐旋转木马转了三圈，下来还在晕，萌翻了！'},
-  {n:'夜市小吃街',e:'🍢',txt:'老陌一口气吃了五串烤肉，摸着圆肚子打饱嗝。'}
+  {n:'森林秘境',e:'🌳',txt:'宋娇在森林里追蝴蝶，还捡到一颗超大的松果！'},
+  {n:'海边沙滩',e:'🏖️',txt:'宋娇堆了一个大沙堡，浪花来了它跑得比谁都快～'},
+  {n:'雪山之巅',e:'⛰️',txt:'宋娇从雪坡上滚下来，变成了一只白熊，逗得你哈哈大笑。'},
+  {n:'欢乐游乐园',e:'🎡',txt:'宋娇坐旋转木马转了三圈，下来还在晕，萌翻了！'},
+  {n:'夜市小吃街',e:'🍢',txt:'宋娇一口气吃了五串烤肉，摸着圆肚子打饱嗝。'}
 ];
-const TIRED=['老陌撅起嘴：我累坏啦，先睡会儿吧……','老陌摇头晃脑：没力气了，歇一歇嘛。'];
-const HUNG=['老陌捂着肚子：咕咕咕～我饿了！','老陌眼巴巴望着你：有吃的吗？'];
+const TIRED=['宋娇撅起嘴：我累坏啦，先睡会儿吧……','宋娇摇头晃脑：没力气了，歇一歇嘛。'];
+const HUNG=['宋娇捂着肚子：咕咕咕～我饿了！','宋娇眼巴巴望着你：有吃的吗？'];
 
 function canAct(a){
   const c={feed:()=>S.coin>=10&&S.food<96,cute:()=>S.energy>=5,hit:()=>true,
@@ -327,7 +327,7 @@ function canAct(a){
 function need(a){
   if(a==='feed'){
     if(S.coin<10)return '金币不够投喂（需要💰10）';
-    if(S.food>=96)return '老陌已经吃得很饱啦～';
+    if(S.food>=96)return '宋娇已经吃得很饱啦～';
   }
   if((a==='cute'||a==='study'||a==='work')&&S.energy<(a==='cute'?5:15))return TIRED[0];
   if(a==='travel'&&S.coin<30)return '金币不够旅游（需要💰30）';
@@ -342,34 +342,34 @@ function act(a){
   let msg='';
   if(a==='feed'){
     S.coin-=10;S.love=clamp(S.love+5);S.hate=clamp(S.hate-3);S.food=clamp(S.food+22);
-    msg='老陌大口啃着蜂蜜肉骨头，幸福得直哼哼～';fx('🍖',2);fx('💕',2);anim('eat',1200);
+    msg='宋娇大口啃着蜂蜜肉骨头，幸福得直哼哼～';fx('🍖',2);fx('💕',2);anim('eat',1200);
   }else if(a==='cute'){
     S.energy-=5;S.love=clamp(S.love+4);S.hate=clamp(S.hate-2);
-    const c=['老陌抱着你的腿蹭来蹭去，还会歪头杀！','老陌捂着脸扭来扭去，奶声奶气地撒娇～','老陌双手合十眼巴巴看你，太可爱了！'];
+    const c=['宋娇抱着你的腿蹭来蹭去，还会歪头杀！','宋娇捂着脸扭来扭去，奶声奶气地撒娇～','宋娇双手合十眼巴巴看你，太可爱了！'];
     msg=c[rnd(0,c.length-1)];fx('🥰',3);anim('cute',1400);
   }else if(a==='hit'){
     S.hate=clamp(S.hate+8);S.love=clamp(S.love-6);
-    const c=['老陌委屈地瘪嘴，眼眶都红了……','老陌抱着头缩成一团，气得背过身去！','老陌瞪圆了眼睛，鼻孔直冒粗气！'];
+    const c=['宋娇委屈地瘪嘴，眼眶都红了……','宋娇抱着头缩成一团，气得背过身去！','宋娇瞪圆了眼睛，鼻孔直冒粗气！'];
     msg=c[rnd(0,c.length-1)];fx('💢',3);anim('hit',700);
   }else if(a==='travel'){
     S.coin-=30;S.energy-=10;S.food=clamp(S.food-8);S.love=clamp(S.love+10);S.hate=clamp(S.hate-4);
     const d=DEST[rnd(0,DEST.length-1)];
-    msg='带着老陌去了【'+d.n+'】！'+d.txt;fx(d.e,3);fx('💕',2);anim('travel',2000);
+    msg='带着宋娇去了【'+d.n+'】！'+d.txt;fx(d.e,3);fx('💕',2);anim('travel',2000);
   }else if(a==='study'){
     S.energy-=15;S.food=clamp(S.food-6);
     const earn=12+Sintel();S.coin+=earn;S.intel=clamp(S.intel+3);S.love=clamp(S.love-2);
-    msg='老陌认真上完课，学到了新知识，赚了💰'+earn+'（智力+3，它有点小抱怨但还是努力了）';
+    msg='宋娇认真上完课，学到了新知识，赚了💰'+earn+'（智力+3，它有点小抱怨但还是努力了）';
     fx('📚',2);fx('💰',3);anim('study',2000);
   }else if(a==='work'){
     S.energy-=15;S.food=clamp(S.food-10);
     const earn=20+rnd(0,10);S.coin+=earn;S.love=clamp(S.love-3);
-    msg='老陌去搬木头打工，累得直喘气，赚了💰'+earn;fx('💰',4);anim('work',1600);
+    msg='宋娇去搬木头打工，累得直喘气，赚了💰'+earn;fx('💰',4);anim('work',1600);
   }else if(a==='play'){
     S.energy-=10;S.food=clamp(S.food-8);S.love=clamp(S.love+6);S.hate=clamp(S.hate-3);
-    msg='你陪老陌玩接球游戏，它蹦来蹦去开心极了！';fx('🎾',3);fx('💕',2);anim('play',1500);
+    msg='你陪宋娇玩接球游戏，它蹦来蹦去开心极了！';fx('🎾',3);fx('💕',2);anim('play',1500);
   }else if(a==='sleep'){
     const gain=Math.min(40,100-S.energy);S.energy+=gain;
-    msg='老陌呼呼大睡，一觉回了'+gain+'点精力💤';anim('sleep',3000);stage.classList.add('sleeping');
+    msg='宋娇呼呼大睡，一觉回了'+gain+'点精力💤';anim('sleep',3000);stage.classList.add('sleeping');
     setTimeout(()=>stage.classList.remove('sleeping'),3000);
   }
   S.log.unshift(msg);if(S.log.length>30)S.log.pop();
@@ -383,11 +383,11 @@ function closeWin(){$('win').classList.remove('show');}
 
 document.querySelectorAll('.btn').forEach(b=>b.addEventListener('click',()=>act(b.dataset.act)));
 $('resetBtn').addEventListener('click',()=>{
-  if(confirm('确定要重置存档，让老陌重新开始吗？')){localStorage.removeItem(KEY);S=load();save();sessionStorage.removeItem('winShown');render();say('老陌重新出生啦！');}
+  if(confirm('确定要重置存档，让宋娇重新开始吗？')){localStorage.removeItem(KEY);S=load();save();sessionStorage.removeItem('winShown');render();say('宋娇重新出生啦！');}
 });
 render();
 log(S.log[0]);
-say('你好呀，我是老陌～点下面的按钮照顾我吧！');
+say('你好呀，我是宋娇～点下面的按钮照顾我吧！');
 </script>
 <!--
 【文件末尾·标签汇总】
@@ -398,7 +398,7 @@ say('你好呀，我是老陌～点下面的按钮照顾我吧！');
 5. <header> 顶部栏：标题 + 金币显示（内含 <h1>、<small>、<span>）
 6. <section id="stats"> 五维数值面板，内部 <div class="stat"> 每条数值，<span class="bar"><i> 为进度条，<span class="vl"> 为数字
 7. <section id="stage"> 游戏舞台：包含 .sun 太阳、.cloud 云朵、<div id="bubble"> 对话气泡、<div id="bearWrap"> 熊容器、<div id="zzz"> 睡眠符号
-8. <svg id="bearSvg"> 原创棕熊「老陌」矢量形象：<g class="bear"> 熊整体，<ellipse>/<circle> 拼出手脚身体耳朵头，<path> 画嘴型眉型
+8. <svg id="bearSvg"> 原创棕熊「宋娇」矢量形象：<g class="bear"> 熊整体，<ellipse>/<circle> 拼出手脚身体耳朵头，<path> 画嘴型眉型
 9. <g class="moodG"> 四组心情表情 e-normal/e-happy/e-sad/e-angry，由 data-mood 切换显隐
 10. <div id="win"> 养成成功结算浮层（<h2>/<p>/<button>）
 11. <nav id="actions"> 互动按钮区，<button class="btn"> 每个含 .em 图标、文字、.cost 消耗说明
